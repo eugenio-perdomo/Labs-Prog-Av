@@ -30,6 +30,8 @@
 *.exe
 *.out
 *.app
+compilador
+ejercicio2
 
 # CodeBlocks
 *.cbp
