@@ -7,7 +7,89 @@
 
 using namespace std;
 
+void mostrarContenidoAnterior();
+void mostrarMenuPrincipal();
+
+void mostrarMenuPrincipal()
+{
+    std::cout << "\e[0;92mBienvenido -" << " Elija una opción\e[0m:\n";
+    std::cout << "\e[0;92m1)\e[0m Agregar Jugador.\n";
+    std::cout << "\e[0;92m2)\e[0m Agregar Videojuego.\n";
+    std::cout << "\e[0;92m3)\e[0m Obtener Jugadores.\n";
+    std::cout << "\e[0;92m4)\e[0m Obtener Videojuegos.\n";
+    std::cout << "\e[0;92m5)\e[0m Obtener Partidas.\n";
+    std::cout << "\e[0;92m6)\e[0m Iniciar Partida.\n";
+    std::cout << "Pulse \e[0;92m0\e[0m para salir.\n\nOpcion: \e[0;92m";
+}
+
 int main()
+{
+    int opcionUsuario;
+    bool bandera = true;
+    while (bandera == true)
+    {
+        mostrarMenuPrincipal();
+        std::cin >> opcionUsuario;
+        std::cout << "\e[0m";
+        std::cin.clear();
+        try
+        {
+            switch (opcionUsuario)
+            {
+            case 0: // CASO SALIDA DE SISTEMA
+            {
+                bandera = false;
+                break;
+            }
+            case 1: // Agregar Jugador
+            {
+                mostrarContenidoAnterior();
+                //menuCaso1();
+                break;
+            }
+            case 2: // Agregar Videojuego
+            {
+                //menuCaso2();
+                std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                break;
+            }
+            case 3: // Obtener Jugadores
+            {
+                std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                //menuCaso3();
+                break;
+            }
+            case 4: // Obtener Videojuegos
+            {
+                std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                //menuCaso4();
+                break;
+            }
+            case 5: // Obtener Partidas
+            {
+                std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                //menuCaso5();
+                break;
+            }
+            case 6: // Iniciar Partida
+            {
+                std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                //menuCaso6();
+                break;
+            }
+            default:
+                throw std::invalid_argument("\n\e[0;31mLa opcion ingresada no es correcta.\n\e[0m");
+            }
+        }
+        catch (std::invalid_argument &e)
+        {
+            std::cerr << e.what() << endl;
+        }
+    }
+    return 0;
+}
+
+void mostrarContenidoAnterior()
 {
 
     cout << "PRUEBA VIDEOJUEGO" << endl;
@@ -51,6 +133,4 @@ int main()
     ConVideojuego.agregarVideojuego("Hollow Knight", OTRO);
 
     ConVideojuego.mostrarVideojuegos();
-
-    return 0;
 }
