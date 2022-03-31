@@ -5,6 +5,7 @@ Deben tener gcc o g++ instalado. En este momento se instala automaticamente el 9
     y verificar con "gcc --version"
 
 Hay que instalar make.
+Hay que instalar git.
 
 Para hacer funcionar el codigo hay que hacer
 *1 ponerse en la carpeta correspondiente
