@@ -1,26 +1,6 @@
-#include <iostream>
-#include <string>
-//hhhh
-#include "Jugador.h"
-#include "Videojuego.h"
-#include "Partida.h"
+#include "./classes/headers/Sistema.h"
 
 using namespace std;
-
-void mostrarContenidoAnterior();
-void mostrarMenuPrincipal();
-
-void mostrarMenuPrincipal()
-{
-    std::cout << "\e[0;92mBienvenido -" << " Elija una opción\e[0m:\n";
-    std::cout << "\e[0;92m1)\e[0m Agregar Jugador.\n";
-    std::cout << "\e[0;92m2)\e[0m Agregar Videojuego.\n";
-    std::cout << "\e[0;92m3)\e[0m Obtener Jugadores.\n";
-    std::cout << "\e[0;92m4)\e[0m Obtener Videojuegos.\n";
-    std::cout << "\e[0;92m5)\e[0m Obtener Partidas.\n";
-    std::cout << "\e[0;92m6)\e[0m Iniciar Partida.\n";
-    std::cout << "Pulse \e[0;92m0\e[0m para salir.\n\nOpcion: \e[0;92m";
-}
 
 int main()
 {
@@ -28,7 +8,7 @@ int main()
     bool bandera = true;
     while (bandera == true)
     {
-        mostrarMenuPrincipal();
+        Sistema::mostrarMenuPrincipal();
         std::cin >> opcionUsuario;
         std::cout << "\e[0m";
         std::cin.clear();
@@ -43,7 +23,7 @@ int main()
             }
             case 1: // Agregar Jugador
             {
-                mostrarContenidoAnterior();
+                Sistema::mostrarContenidoAnterior();
                 //menuCaso1();
                 break;
             }
@@ -87,50 +67,4 @@ int main()
         }
     }
     return 0;
-}
-
-void mostrarContenidoAnterior()
-{
-
-    cout << "PRUEBA VIDEOJUEGO" << endl;
-
-    Videojuego v1;
-    v1.setNombre("Elden Ring");
-    v1.setGenero(AVENTURA);
-    cout << v1.getNombre() << " es un videojuego del genero " << v1.getGenero() << endl;
-
-    cout << endl;
-    cout << "-------------------------------------------------------------------" << endl;
-    cout << endl;
-    cout << "PRUEBA PARTIDA" << endl;
-
-    dtFechaHora momento1(27, 3, 2020, 20, 30);
-    Partida p1(10, momento1);
-    dtFechaHora fPartida = p1.getFecha();
-    cout << "Duracion de la partida: " << p1.getDuracion() << endl;
-    cout << "Fecha de la partida: " << fPartida.getDia() << "/" << fPartida.getMes() << "/" << fPartida.getAnio() << " " << fPartida.getHora() << ":" << fPartida.getMinuto() << endl;
-
-    cout << endl;
-    cout << "-------------------------------------------------------------------" << endl;
-    cout << endl;
-
-    ContenedorJugador ConJugador;
-
-    ConJugador.agregarJugador("J1", 21, "A");
-    ConJugador.agregarJugador("J2", 22, "B");
-    ConJugador.agregarJugador("J3", 23, "C");
-
-    ConJugador.mostrarJugadores();
-
-    cout << endl;
-    cout << "-------------------------------------------------------------------" << endl;
-    cout << endl;
-
-    ContenedorVideojuego ConVideojuego;
-
-    ConVideojuego.agregarVideojuego("Elden Ring", AVENTURA);
-    ConVideojuego.agregarVideojuego("Fifa 2077", DEPORTE);
-    ConVideojuego.agregarVideojuego("Hollow Knight", OTRO);
-
-    ConVideojuego.mostrarVideojuegos();
 }

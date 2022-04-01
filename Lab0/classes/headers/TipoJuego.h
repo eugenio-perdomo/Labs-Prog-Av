@@ -1,0 +1,10 @@
+#ifndef TIPOJUEGO_H_INCLUDED
+#define TIPOJUEGO_H_INCLUDED
+enum TipoJuego
+{
+    ACCION,
+    AVENTURA,
+    DEPORTE,
+    OTRO
+};
+#endif //TIPOJUEGO_H_INCLUDED
