@@ -9,24 +9,15 @@ DEF = ./classes/headers/ContenedorJugador.h ./classes/headers/ContenedorPartida.
 ./datatypes/headers/DtFechaHora.h ./datatypes/headers/DtPartida.h ./datatypes/headers/DtVideojuego.h 
 
 CC = g++
-OPCIONES = -c -Wall
+OPCIONES = -c
 
 all: Compilador
 
 Compilador: $(OBJETOS)
 	$(CC) $(OBJETOS) -o Compilador
 
-main.o: main.cpp Makefile ./classes/headers/Sistema.h
+main: main.cpp Makefile ./classes/headers/Sistema.h
 	$(CC) $(OPCIONES) main.cpp
-
-ContenedorJugador.o: ./classes/headers/ContenedorJugador.h ./classes/sources/ContenedorJugador.cpp
-	$(CC) $(OPCIONES) ./classes/sources/ContenedorJugador.cpp
-
-ContenedorPartida.o: ./classes/headers/ContenedorPartida.h ./classes/sources/ContenedorPartida.cpp
-	$(CC) $(OPCIONES) ./classes/sources/ContenedorPartida.cpp
-
-ContenedorVideojuego.o: ./classes/headers/ContenedorVideojuego.h ./classes/sources/ContenedorVideojuego.cpp
-	$(CC) $(OPCIONES) ./classes/sources/ContenedorVideojuego.cpp
 
 Jugador.o: ./classes/headers/Jugador.h ./classes/sources/Jugador.cpp
 	$(CC) $(OPCIONES) ./classes/sources/Jugador.cpp
@@ -43,8 +34,17 @@ PartidaMultijugador.o: ./classes/headers/PartidaMultijugador.h ./classes/sources
 Sistema.o: ./classes/headers/Sistema.h ./classes/sources/Sistema.cpp
 	$(CC) $(OPCIONES) ./classes/sources/Sistema.cpp
 
-Videojuego.o: ./classes/headers/Videojuego.h ./classes/headers/TipoJuego.h ./classes/sources/Videojuego.cpp
+Videojuego.o: ./classes/headers/Videojuego.h ./classes/sources/Videojuego.cpp
 	$(CC) $(OPCIONES) ./classes/sources/Videojuego.cpp
+
+ContenedorJugador.o: ./classes/headers/ContenedorJugador.h ./classes/sources/ContenedorJugador.cpp
+	$(CC) $(OPCIONES) ./classes/sources/ContenedorJugador.cpp
+
+ContenedorPartida.o: ./classes/headers/ContenedorPartida.h ./classes/sources/ContenedorPartida.cpp
+	$(CC) $(OPCIONES) ./classes/sources/ContenedorPartida.cpp
+
+ContenedorVideojuego.o: ./classes/headers/ContenedorVideojuego.h ./classes/sources/ContenedorVideojuego.cpp
+	$(CC) $(OPCIONES) ./classes/sources/ContenedorVideojuego.cpp
 
 DtFechaHora.o: ./datatypes/headers/DtFechaHora.h ./datatypes/sources/DtFechaHora.cpp
 	$(CC) $(OPCIONES) ./datatypes/sources/DtFechaHora.cpp

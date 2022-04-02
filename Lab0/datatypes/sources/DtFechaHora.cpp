@@ -3,6 +3,8 @@
 
 using namespace std;
 
+DtFechaHora::DtFechaHora() {}
+
 DtFechaHora::DtFechaHora(int dia, int mes, int anio, int hora, int minuto)
 {
     this->dia = dia;

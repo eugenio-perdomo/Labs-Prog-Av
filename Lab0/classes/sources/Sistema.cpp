@@ -26,11 +26,11 @@ void mostrarContenidoAnterior()
     cout << endl;
     cout << "PRUEBA PARTIDA" << endl;
 
-    DtFechaHora momento1(27, 3, 2020, 20, 30);
-    Partida p1(10, momento1);
-    DtFechaHora fPartida = p1.getFecha();
-    cout << "Duracion de la partida: " << p1.getDuracion() << endl;
-    cout << "Fecha de la partida: " << fPartida.getDia() << "/" << fPartida.getMes() << "/" << fPartida.getAnio() << " " << fPartida.getHora() << ":" << fPartida.getMinuto() << endl;
+    DtFechaHora *momento1 = new DtFechaHora(27, 3, 2020, 20, 30);
+    Partida *p1 = new Partida(10.f, momento1);
+    DtFechaHora *fPartida = p1->getFecha();
+    cout << "Duracion de la partida: " << p1->getDuracion() << endl;
+    cout << "Fecha de la partida: " << fPartida->getDia() << "/" << fPartida->getMes() << "/" << fPartida->getAnio() << " " << fPartida->getHora() << ":" << fPartida->getMinuto() << endl;
 
     cout << endl;
     cout << "-------------------------------------------------------------------" << endl;

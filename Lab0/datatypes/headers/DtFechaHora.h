@@ -1,27 +1,28 @@
 #ifndef DTFECHAHORA_H
 #define DTFECHAHORA_H
-#include <iostream>
+#include <ostream>
 
 using namespace std;
 
-class DtFechaHora {
+class DtFechaHora
+{
+private:
+    int dia, mes, anio, hora, minuto;
+    bool isValid();
 
-    public:
-        DtFechaHora();
-        DtFechaHora(int dia, int mes, int anio, int hora, int minuto);
+public:
+    DtFechaHora();
+    DtFechaHora(int dia, int mes, int anio, int hora, int minuto);
 
-        int getDia();
-        int getMes();
-        int getAnio();
-        int getHora();
-        int getMinuto();
+    int getDia();
+    int getMes();
+    int getAnio();
+    int getHora();
+    int getMinuto();
 
-        friend ostream& operator<<(ostream &o, DtFechaHora& dfh);
-        bool operator<(const DtFechaHora& dfh) const;
+    friend ostream &operator<<(ostream &o, DtFechaHora &dfh);
+    bool operator<(const DtFechaHora &dfh) const;
 
-        virtual ~DtFechaHora();
-    private:
-        int dia, mes, anio, hora, minuto;
-        bool isValid();
+    virtual ~DtFechaHora();
 };
 #endif

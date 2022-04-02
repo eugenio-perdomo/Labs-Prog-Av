@@ -23,7 +23,7 @@ public:
     int getEdad();
     string getContrasenia();
 
-    ~Jugador() {}
+    virtual ~Jugador();
 };
 
 #endif // JUGADOR_H_INCLUDED

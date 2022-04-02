@@ -1,5 +1,7 @@
 #include "./../headers/Videojuego.h"
 
+Videojuego::Videojuego() {}
+
 Videojuego::Videojuego(string n, TipoJuego g)
 {
     this->nombre = n;
@@ -40,3 +42,5 @@ string Videojuego::traducirGenero(Videojuego aux)
         return "OTRO";
     }
 }
+
+Videojuego::~Videojuego() {}

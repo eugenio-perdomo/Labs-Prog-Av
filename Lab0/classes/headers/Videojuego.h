@@ -24,7 +24,7 @@ public:
     string getNombre();
     TipoJuego getGenero();
     string traducirGenero(Videojuego aux);
-    ~Videojuego() {}
+    virtual ~Videojuego();
 };
 
 #endif // VIDEOJUEGO_H_INCLUDED
