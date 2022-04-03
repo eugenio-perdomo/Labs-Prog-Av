@@ -1,4 +1,5 @@
 #include "./../headers/ContenedorVideojuego.h"
+#include <typeinfo>
 
 ContenedorVideojuego::ContenedorVideojuego(){}
 ContenedorVideojuego::~ContenedorVideojuego(){}
@@ -107,34 +108,4 @@ void ContenedorVideojuego::mostrarPartida(string nombreVideojuego){
         aux = aux+1;
     }
 
-}
-
-
-// REVISION
-Partida **ContenedorVideojuego::obtenerPartidas(string videojuego, int &cantPartidas)
-{
-    // PREREQUISITO: VIDEOJUEGO EXISTE
-    cantPartidas = ultimo + 1;
-
-    int aux = 0;
-    while (aux < ultimo)
-    {
-        if (arreglo[aux]->getNombre() == videojuego)
-        {
-            // Estoy parado en el videojuego que quiero.
-
-            Partida **arreglo_aux = new Partida *[ultimo];
-
-            // int aux2=0;
-            // ERROR: while(aux2<arreglo[aux].partidas->ultimo){
-
-            // 1- Operacion que me devuelva partidas.ultimo
-            // 2- Operacion que me devuelva todas las partidas.
-
-            // Una vez tenga eso:
-            // arreglo_aux=arreglo[aux].partidas;
-            // return arreglo_aux;
-        }
-        aux = aux + 1;
-    }
 }
