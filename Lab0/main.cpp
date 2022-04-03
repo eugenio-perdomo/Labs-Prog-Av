@@ -45,12 +45,13 @@ int main()
             }
             case 5: // Obtener Partidas
             {
-                std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                //std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                sistema.mostrarPartida();
                 break;
             }
             case 6: // Iniciar Partida
             {
-                std::cout << "\n\e[0;93mAun no implementado\e[0m\n\n";
+                sistema.agregarPartida();
                 break;
             }
             default:

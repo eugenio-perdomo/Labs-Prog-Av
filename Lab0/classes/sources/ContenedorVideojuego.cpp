@@ -75,6 +75,41 @@ Videojuego **ContenedorVideojuego::obtenerVideojuegos(int &cantVideojuegos)
     return arreglo_aux;
 }
 
+void ContenedorVideojuego::iniciarPartida(string nickname, string videojuego, Partida *datos){
+
+    int aux = 0;
+
+    while (aux < ultimo){
+        if (arreglo[aux]->getNombre() == videojuego){
+            //Situado sobre el videojuego
+            
+            int tipoPartida;
+            cout<<"1- Partida individual"<<endl;
+            cout<<"2- Partida multijugador"<<endl;
+            cout<<"Seleccione tipo de partida:";
+            cin >> tipoPartida;
+
+            arreglo[aux]->iniciarPartida(datos, tipoPartida);
+        }
+        aux = aux + 1;
+    }
+}
+
+void ContenedorVideojuego::mostrarPartida(string nombreVideojuego){
+
+    int aux = 0;
+
+    while (aux < ultimo){
+        if (arreglo[aux]->getNombre() == nombreVideojuego){
+            //Situado sobre el videojuego
+            arreglo[aux]->mostrarPartida();
+        }
+        aux = aux+1;
+    }
+
+}
+
+
 // REVISION
 Partida **ContenedorVideojuego::obtenerPartidas(string videojuego, int &cantPartidas)
 {

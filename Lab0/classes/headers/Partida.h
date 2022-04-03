@@ -11,15 +11,18 @@ class Partida
 private:
     DtFechaHora *fechaHora;
     float duracion;
-    Jugador iniciador;
+    Jugador *iniciador;
 public:
     Partida();
     Partida(float d, DtFechaHora *f);
 
     float getDuracion();
     DtFechaHora *getFecha();
+    Jugador *getIniciador(); 
+    
     void setDuracion(float d);
     void setFecha(DtFechaHora *f);
+    void setIniciador(Jugador * iniciador);
     
     virtual ~Partida();
 };

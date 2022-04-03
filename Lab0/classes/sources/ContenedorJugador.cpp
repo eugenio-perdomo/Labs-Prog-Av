@@ -40,6 +40,21 @@ void ContenedorJugador::mostrarJugadores()
     }
 }
 
+Jugador * ContenedorJugador::devolverJugador(string nickname)
+{
+    int aux = 0;
+
+    while (aux < ultimo)
+    {
+        if (arreglo[aux]->getNickname() == nickname)
+        {
+            return arreglo[aux];
+        }
+        aux = aux + 1;
+    }
+}
+
+
 bool ContenedorJugador::existeJugador(string nickname)
 {
     int aux = 0;

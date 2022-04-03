@@ -17,6 +17,9 @@ public:
     void agregarJugador(string nickname, int edad, string contrasenia);
     void mostrarJugadores();
     bool existeJugador(string nickname);
+
+    Jugador *devolverJugador(string nickname);
+
     ~ContenedorJugador() {}
 };
 #endif // CONTENEDORJUGADOR_H_INCLUDED

@@ -18,6 +18,15 @@ public:
     void mostrarVideojuegos();
     bool existeVideojuego(string nombre);
     Videojuego **obtenerVideojuegos(int &cantVideojuegos);
+
+    int getUltimo();
+
+    void iniciarPartida(string nickname, string videojuego, Partida *datos);
+
+    void mostrarPartida(string nombreVideojuego);
+
+
+
     // REVISION
     Partida **obtenerPartidas(string videojuego, int &cantPartidas);
     ~ContenedorVideojuego();

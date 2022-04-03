@@ -28,4 +28,15 @@ DtFechaHora *Partida::getFecha()
     return fechaHora;
 }
 
+Jugador *Partida::getIniciador(){
+    return iniciador;
+}
+
+void Partida::setIniciador(Jugador * iniciador){
+    this->iniciador=iniciador;
+}
+
+
+
+
 Partida::~Partida() {}
