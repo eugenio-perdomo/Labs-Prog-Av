@@ -1,6 +1,6 @@
 #include "./../headers/Sistema.h"
 
-void mostrarMenuPrincipal()
+void Sistema::mostrarMenuPrincipal()
 {
     std::cout << "\e[0;92mBienvenido -" << " Elija una opción\e[0m:\n";
     std::cout << "\e[0;92m1)\e[0m Agregar Jugador.\n";
@@ -12,7 +12,7 @@ void mostrarMenuPrincipal()
     std::cout << "Pulse \e[0;92m0\e[0m para salir.\n\nOpcion: \e[0;92m";
 }
 
-void mostrarContenidoAnterior()
+void Sistema::mostrarContenidoAnterior()
 {
     cout << "PRUEBA VIDEOJUEGO" << endl;
 

@@ -9,7 +9,7 @@ using namespace std;
 class ContenedorJugador
 {
 private:
-    Jugador arreglo[MAX_JUGADORES];
+    Jugador **arreglo = new Jugador *[MAX_JUGADORES];
     int ultimo = 0;
 
 public:

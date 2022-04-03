@@ -1,4 +1,8 @@
 #include "./../headers/ContenedorPartida.h"
+
+ContenedorPartida::ContenedorPartida(){}
+ContenedorPartida::~ContenedorPartida(){}
+
 void ContenedorPartida::iniciarPartidaIndividual(string nickname, string videojuego, Partida datos)
 {
     /*

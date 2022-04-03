@@ -1,4 +1,5 @@
 #include "./../headers/ContenedorJugador.h"
+
 void ContenedorJugador::agregarJugador(string nickname, int edad, string contrasenia)
 {
     if (ultimo == MAX_JUGADORES)
@@ -10,7 +11,7 @@ void ContenedorJugador::agregarJugador(string nickname, int edad, string contras
 
         if (ContenedorJugador::existeJugador(nickname) == false)
         {
-            Jugador aux(nickname, edad, contrasenia);
+            Jugador *aux = new Jugador(nickname, edad, contrasenia);
             arreglo[ultimo] = aux;
             ultimo = ultimo + 1;
         }
@@ -34,7 +35,7 @@ void ContenedorJugador::mostrarJugadores()
 
     while (aux < ultimo)
     {
-        cout << "El jugador " << arreglo[aux].getNickname() << " tiene " << arreglo[aux].getEdad() << " años. Su contra es: " << arreglo[aux].getContrasenia() << endl;
+        cout << "El jugador " << arreglo[aux]->getNickname() << " tiene " << arreglo[aux]->getEdad() << " años. Su contra es: " << arreglo[aux]->getContrasenia() << endl;
         aux = aux + 1;
     }
 }
@@ -45,7 +46,7 @@ bool ContenedorJugador::existeJugador(string nickname)
 
     while (aux < ultimo)
     {
-        if (arreglo[aux].getNickname() == nickname)
+        if (arreglo[aux]->getNickname() == nickname)
         {
             return true;
         }

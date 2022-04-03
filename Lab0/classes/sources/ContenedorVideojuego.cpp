@@ -1,5 +1,8 @@
 #include "./../headers/ContenedorVideojuego.h"
 
+ContenedorVideojuego::ContenedorVideojuego(){}
+ContenedorVideojuego::~ContenedorVideojuego(){}
+
 void ContenedorVideojuego::agregarVideojuego(string nombre, TipoJuego genero)
 {
     if (ultimo == MAX_VIDEOJUEGOS)
@@ -34,11 +37,11 @@ void ContenedorVideojuego::mostrarVideojuegos()
     int aux = 0;
 
     //TODO: Finalizar operacion aca
-    /*while (aux < ultimo)
+    while (aux < ultimo)
     {
         std::cout << "El videojuego " << arreglo[aux]->getNombre() << " es del genero " << arreglo[aux]->traducirGenero(arreglo[aux]) << std::endl;
         aux = aux + 1;
-    }*/
+    }
 }
 
 bool ContenedorVideojuego::existeVideojuego(string nombre)
