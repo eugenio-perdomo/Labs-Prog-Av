@@ -14,8 +14,8 @@ private:
 
 public:
     ContenedorPartida();
-    void iniciarPartidaIndividual(string nickname, string videojuego, Partida datos);
-    void iniciarPartidaMultiJugador(string nickname, string videojuego, Partida datos);
+    void iniciarPartidaIndividual(Partida *datos);
+    void iniciarPartidaMultiJugador(Partida *datos);
     void mostrarPartidas();
     ~ContenedorPartida();
 };

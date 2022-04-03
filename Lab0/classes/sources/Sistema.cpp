@@ -1,6 +1,7 @@
 #include "./../headers/Sistema.h"
+// #include "./../headers/Partida.h"
 
-void mostrarMenuPrincipal()
+void Sistema::mostrarMenuPrincipal()
 {
     std::cout << "\e[0;92mBienvenido -" << " Elija una opción\e[0m:\n";
     std::cout << "\e[0;92m1)\e[0m Agregar Jugador.\n";
@@ -12,7 +13,7 @@ void mostrarMenuPrincipal()
     std::cout << "Pulse \e[0;92m0\e[0m para salir.\n\nOpcion: \e[0;92m";
 }
 
-void mostrarContenidoAnterior()
+void Sistema::mostrarContenidoAnterior()
 {
     cout << "PRUEBA VIDEOJUEGO" << endl;
 
@@ -131,6 +132,56 @@ void Sistema::mostrarVideojuego()
     ConVideojuego.mostrarVideojuegos();
 }
 
-void Sistema::agregarPartida() {}
+void Sistema::agregarPartida() {
 
-void Sistema::mostrarPartida() {}
+    string nombreVideojuego;
+    cout <<"Indicar videojuego: ";
+    cin.ignore();
+    getline(cin, nombreVideojuego);
+
+    if(ConVideojuego.existeVideojuego(nombreVideojuego)){
+        string iniciador;
+        cout <<"Indicar nickname iniciador: ";
+        cin.ignore();
+        getline(cin, iniciador);
+
+        if (ConJugador.existeJugador(iniciador)==false){
+            Jugador * jugadorIniciador;
+            jugadorIniciador = ConJugador.devolverJugador(iniciador);
+            
+            DtFechaHora * fechaHora = new DtFechaHora(3,4,2022,14,35);
+            float dur = 0;
+            Partida * datos = new Partida();
+            datos->setDuracion(dur);
+            datos->setFecha(fechaHora);
+            datos->setIniciador(jugadorIniciador);            
+
+            ConVideojuego.iniciarPartida(iniciador, nombreVideojuego, datos);
+
+        } else {
+            cout<<"No existe ese jugador"<<endl;
+        }
+    } else {
+        cout <<"No existe ese videojuego"<<endl;
+    }
+}
+
+void Sistema::mostrarPartida() {
+
+    string nombreVideojuego;
+    cout <<"Indicar videojuego: ";
+    cin.ignore();
+    getline(cin, nombreVideojuego);
+
+    if(ConVideojuego.existeVideojuego(nombreVideojuego)){
+        ConVideojuego.mostrarPartida(nombreVideojuego);
+    } else {
+        cout<<"No existe ese videojuego"<<endl;
+    }
+
+
+
+
+
+    
+}

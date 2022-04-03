@@ -1,34 +1,41 @@
 #include "./../headers/ContenedorPartida.h"
-void ContenedorPartida::iniciarPartidaIndividual(string nickname, string videojuego, Partida datos)
+#include "./../headers/PartidaIndividual.h"
+#include "./../headers/PartidaMultijugador.h"
+
+ContenedorPartida::ContenedorPartida(){}
+ContenedorPartida::~ContenedorPartida(){}
+
+void ContenedorPartida::iniciarPartidaIndividual(Partida *datos)
 {
-    /*
-    // PREREQUISITO: EL VIDEOJUEGO EXISTE.
-    // Ya se selecciono individual
-    if (ultimo == MAX_PARTIDAS)
-    {
+    //Ya me encuentro situado en el videojuego que quiero y en "datos" tengo la partida y su jugador iniciador
+    //Partida *datos
+
+    if (ultimo == MAX_PARTIDAS){
         cout << "Error: se intento superar el limite de jugadores" << endl;
-    }
-    else
-    {
+    } else {
         PartidaIndividual *aux = new PartidaIndividual;
-        aux->setDuracion(datos.getDuracion());
-        aux->setFecha(datos.getFecha());
-        aux->setEsContinuacion(false);
+        aux->setDuracion(datos->getDuracion());
+        aux->setFecha(datos->getFecha());
+        aux->setIniciador(datos->getIniciador());
+
         arreglo[ultimo] = aux;
         ultimo = ultimo + 1;
-    }*/
+    }
 }
 
-void ContenedorPartida::iniciarPartidaMultiJugador(string nickname, string videojuego, Partida datos)
+void ContenedorPartida::iniciarPartidaMultiJugador(Partida *datos)
 {
-    /*
-    // PREREQUISITO: EL VIDEOJUEGO EXISTE.
-    // Ya se selecciono multijugador
-    PartidaMultijugador *aux = new PartidaMultijugador;
-    aux->setDuracion(datos.getDuracion());
-    aux->setFecha(datos.getFecha());
-    arreglo[ultimo] = aux;
-    ultimo = ultimo + 1;
+    if (ultimo == MAX_PARTIDAS){
+        cout << "Error: se intento superar el limite de jugadores" << endl;
+    } else {
+        PartidaMultijugador *aux = new PartidaMultijugador;
+        aux->setDuracion(datos->getDuracion());
+        aux->setFecha(datos->getFecha());
+        aux->setIniciador(datos->getIniciador());
+
+        arreglo[ultimo] = aux;
+        ultimo = ultimo + 1;
+    }
 }
 
 void ContenedorPartida::mostrarPartidas()
@@ -39,5 +46,5 @@ void ContenedorPartida::mostrarPartidas()
         cout << arreglo[aux]->getDuracion() << endl;
         aux = aux + 1;
     }
-    */
+    
 }

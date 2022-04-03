@@ -1,5 +1,8 @@
 #include "./../headers/ContenedorVideojuego.h"
 
+ContenedorVideojuego::ContenedorVideojuego(){}
+ContenedorVideojuego::~ContenedorVideojuego(){}
+
 void ContenedorVideojuego::agregarVideojuego(string nombre, TipoJuego genero)
 {
     if (ultimo == MAX_VIDEOJUEGOS)
@@ -34,11 +37,11 @@ void ContenedorVideojuego::mostrarVideojuegos()
     int aux = 0;
 
     //TODO: Finalizar operacion aca
-    /*while (aux < ultimo)
+    while (aux < ultimo)
     {
         std::cout << "El videojuego " << arreglo[aux]->getNombre() << " es del genero " << arreglo[aux]->traducirGenero(arreglo[aux]) << std::endl;
         aux = aux + 1;
-    }*/
+    }
 }
 
 bool ContenedorVideojuego::existeVideojuego(string nombre)
@@ -71,6 +74,41 @@ Videojuego **ContenedorVideojuego::obtenerVideojuegos(int &cantVideojuegos)
 
     return arreglo_aux;
 }
+
+void ContenedorVideojuego::iniciarPartida(string nickname, string videojuego, Partida *datos){
+
+    int aux = 0;
+
+    while (aux < ultimo){
+        if (arreglo[aux]->getNombre() == videojuego){
+            //Situado sobre el videojuego
+            
+            int tipoPartida;
+            cout<<"1- Partida individual"<<endl;
+            cout<<"2- Partida multijugador"<<endl;
+            cout<<"Seleccione tipo de partida:";
+            cin >> tipoPartida;
+
+            arreglo[aux]->iniciarPartida(datos, tipoPartida);
+        }
+        aux = aux + 1;
+    }
+}
+
+void ContenedorVideojuego::mostrarPartida(string nombreVideojuego){
+
+    int aux = 0;
+
+    while (aux < ultimo){
+        if (arreglo[aux]->getNombre() == nombreVideojuego){
+            //Situado sobre el videojuego
+            arreglo[aux]->mostrarPartida();
+        }
+        aux = aux+1;
+    }
+
+}
+
 
 // REVISION
 Partida **ContenedorVideojuego::obtenerPartidas(string videojuego, int &cantPartidas)

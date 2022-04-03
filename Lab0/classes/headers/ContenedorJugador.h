@@ -9,7 +9,7 @@ using namespace std;
 class ContenedorJugador
 {
 private:
-    Jugador arreglo[MAX_JUGADORES];
+    Jugador **arreglo = new Jugador *[MAX_JUGADORES];
     int ultimo = 0;
 
 public:
@@ -17,6 +17,9 @@ public:
     void agregarJugador(string nickname, int edad, string contrasenia);
     void mostrarJugadores();
     bool existeJugador(string nickname);
+
+    Jugador *devolverJugador(string nickname);
+
     ~ContenedorJugador() {}
 };
 #endif // CONTENEDORJUGADOR_H_INCLUDED

@@ -26,9 +26,9 @@ TipoJuego Videojuego::getGenero()
     return genero;
 }
 
-string Videojuego::traducirGenero(Videojuego aux)
+string Videojuego::traducirGenero(Videojuego *aux)
 {
-    switch (aux.getGenero())
+    switch (aux->getGenero())
     {
     case 0:
         return "ACCION";
