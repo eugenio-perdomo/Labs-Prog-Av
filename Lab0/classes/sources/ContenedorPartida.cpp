@@ -1,6 +1,7 @@
 #include "./../headers/ContenedorPartida.h"
 #include "./../headers/PartidaIndividual.h"
 #include "./../headers/PartidaMultijugador.h"
+#include <typeinfo>
 
 ContenedorPartida::ContenedorPartida(){}
 ContenedorPartida::~ContenedorPartida(){}
@@ -13,7 +14,7 @@ void ContenedorPartida::iniciarPartidaIndividual(Partida *datos)
     if (ultimo == MAX_PARTIDAS){
         cout << "Error: se intento superar el limite de jugadores" << endl;
     } else {
-        PartidaIndividual *aux = new PartidaIndividual;
+        Partida *aux = new PartidaIndividual;
         aux->setDuracion(datos->getDuracion());
         aux->setFecha(datos->getFecha());
         aux->setIniciador(datos->getIniciador());
@@ -28,7 +29,7 @@ void ContenedorPartida::iniciarPartidaMultiJugador(Partida *datos)
     if (ultimo == MAX_PARTIDAS){
         cout << "Error: se intento superar el limite de jugadores" << endl;
     } else {
-        PartidaMultijugador *aux = new PartidaMultijugador;
+        Partida *aux = new PartidaMultijugador;
         aux->setDuracion(datos->getDuracion());
         aux->setFecha(datos->getFecha());
         aux->setIniciador(datos->getIniciador());
@@ -43,6 +44,15 @@ void ContenedorPartida::mostrarPartidas()
     int aux = 0;
     while (aux < ultimo)
     {
+
+        if (typeid(*arreglo[aux]) == typeid(PartidaIndividual)) {
+            cout<<"Partida individual."<<endl;
+        } else {
+            cout <<"Partida multijugador"<<endl;
+        }
+
+ 
+
         cout << arreglo[aux]->getDuracion() << endl;
         aux = aux + 1;
     }
