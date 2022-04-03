@@ -25,10 +25,6 @@ public:
 
     void mostrarPartida(string nombreVideojuego);
 
-
-
-    // REVISION
-    Partida **obtenerPartidas(string videojuego, int &cantPartidas);
     ~ContenedorVideojuego();
 };
 
