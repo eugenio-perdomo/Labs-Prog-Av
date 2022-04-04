@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include "Jugador.h"
+#include "./../../datatypes/sources/DtJugador.cpp"
+
+
 using namespace std;
 
 class ContenedorJugador
@@ -17,6 +20,8 @@ public:
     void agregarJugador(string nickname, int edad, string contrasenia);
     void mostrarJugadores();
     bool existeJugador(string nickname);
+    DtJugador** obtenerJugadores(int& cantJugadores);
+    int getUltimo();
 
     Jugador *devolverJugador(string nickname);
 
