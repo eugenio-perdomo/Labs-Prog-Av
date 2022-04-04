@@ -1,6 +1,5 @@
 #include "./../headers/ContenedorJugador.h"
-//#include "./../../datatypes/headers/DtJugador.h"
-//#include "./../../datatypes/sources/DtJugador.cpp"
+#include "./../../datatypes/sources/DtJugador.cpp"
 
 void ContenedorJugador::agregarJugador(string nickname, int edad, string contrasenia)
 {
@@ -71,6 +70,7 @@ bool ContenedorJugador::existeJugador(string nickname)
     }
     return false;
 }
+
 
 DtJugador** ContenedorJugador::obtenerJugadores(int& cantJugadores){
     cantJugadores=ultimo;

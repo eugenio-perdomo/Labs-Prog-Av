@@ -89,7 +89,6 @@ void Sistema::mostrarJugadores()
     //Devuelve un arreglo de DtJugador** y un int con la cantidad de jugadores.
     int cantJugadores = 0;
     DtJugador ** dataJugador= new DtJugador *[ConJugador.getUltimo()];
-
     dataJugador = ConJugador.obtenerJugadores(cantJugadores);
     cout<<"Total de jugadores: "<<cantJugadores<<endl;
 

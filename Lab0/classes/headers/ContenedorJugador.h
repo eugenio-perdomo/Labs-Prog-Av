@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 #include "Jugador.h"
-#include "./../../datatypes/sources/DtJugador.cpp"
+#include "./../../datatypes/headers/DtJugador.h"
+//#include "./../../datatypes/sources/DtJugador.cpp"
 
 
 using namespace std;
