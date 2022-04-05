@@ -43,4 +43,18 @@ string Videojuego::traducirGenero(Videojuego *aux)
     }
 }
 
+    void Videojuego::iniciarPartida2(Partida *datos, int tipoPartida){
+        if (tipoPartida==1){
+            //Individual
+            partidas->iniciarPartidaIndividual(datos);
+        } else {
+            //Multijugador
+            partidas->iniciarPartidaMultiJugador(datos);
+        }
+
+    }
+    void Videojuego::mostrarPartida2(){
+        partidas->mostrarPartidas();
+    }
+
 Videojuego::~Videojuego() {}

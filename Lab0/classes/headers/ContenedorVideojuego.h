@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include "./Videojuego.h"
+#include "./../../datatypes/headers/DtVideojuego.h"
+
 using namespace std;
 
 class ContenedorVideojuego : public Videojuego
@@ -17,7 +19,7 @@ public:
     void agregarVideojuego(string nombre, TipoJuego genero);
     void mostrarVideojuegos();
     bool existeVideojuego(string nombre);
-    Videojuego **obtenerVideojuegos(int &cantVideojuegos);
+    DtVideojuego **obtenerVideojuegos(int &cantVideojuegos);
 
     int getUltimo();
 

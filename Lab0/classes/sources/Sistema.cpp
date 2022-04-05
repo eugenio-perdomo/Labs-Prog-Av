@@ -138,6 +138,14 @@ void Sistema::agregarVideojuego()
 void Sistema::mostrarVideojuego()
 {
     ConVideojuego.mostrarVideojuegos();
+
+    int cantVideojuegos = 0;
+    DtVideojuego** dataVideojuego = new DtVideojuego *[ConVideojuego.getUltimo()];
+
+    dataVideojuego = ConVideojuego.obtenerVideojuegos(cantVideojuegos);
+
+    cout<<"Total de videojuegos: "<<cantVideojuegos<<endl;
+
 }
 
 void Sistema::agregarPartida() {

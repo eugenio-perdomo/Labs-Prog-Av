@@ -4,16 +4,12 @@
 
 using namespace std;
 
+#include "./../../classes/headers/TipoJuego.h"
+
 class DtVideojuego
 {
 public:
-    enum TipoJuego
-    {
-        Accion,
-        Aventura,
-        Deporte,
-        Otro
-    };
+    DtVideojuego();
     DtVideojuego(string titulo, TipoJuego tipoJuego);
 
     // getters
