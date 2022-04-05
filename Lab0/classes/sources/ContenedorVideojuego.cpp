@@ -1,8 +1,9 @@
 #include "./../headers/ContenedorVideojuego.h"
+//#include "./../../datatypes/sources/DtVideojuego.cpp"
 #include <typeinfo>
 
-ContenedorVideojuego::ContenedorVideojuego(){}
-ContenedorVideojuego::~ContenedorVideojuego(){}
+ContenedorVideojuego::ContenedorVideojuego() {}
+ContenedorVideojuego::~ContenedorVideojuego() {}
 
 void ContenedorVideojuego::agregarVideojuego(string nombre, TipoJuego genero)
 {
@@ -37,7 +38,7 @@ void ContenedorVideojuego::mostrarVideojuegos()
 {
     int aux = 0;
 
-    //TODO: Finalizar operacion aca
+    // TODO: Finalizar operacion aca
     while (aux < ultimo)
     {
         std::cout << "El videojuego " << arreglo[aux]->getNombre() << " es del genero " << arreglo[aux]->traducirGenero(arreglo[aux]) << std::endl;
@@ -60,52 +61,69 @@ bool ContenedorVideojuego::existeVideojuego(string nombre)
     return false;
 }
 
-Videojuego **ContenedorVideojuego::obtenerVideojuegos(int &cantVideojuegos)
+DtVideojuego **ContenedorVideojuego::obtenerVideojuegos(int &cantVideojuegos)
 {
-    cantVideojuegos = ultimo + 1;
+    cantVideojuegos = ultimo;
 
-    Videojuego **arreglo_aux = new Videojuego *[ultimo];
+    DtVideojuego **dataArreglo = new DtVideojuego *[ultimo];
 
     int aux = 0;
     while (aux < ultimo)
     {
-        arreglo_aux = arreglo;
+        string nombre = arreglo[aux]->getNombre();
+        TipoJuego genero = arreglo[aux]->getGenero();
+
+        //Error con TipoJuego
+        //Verificar
+
+        DtVideojuego *dataAux = new DtVideojuego(nombre, genero);
+
+        dataArreglo[aux] = dataAux;
         aux = aux + 1;
     }
 
-    return arreglo_aux;
+    return dataArreglo;
 }
 
-void ContenedorVideojuego::iniciarPartida(string nickname, string videojuego, Partida *datos){
+void ContenedorVideojuego::iniciarPartida(string nickname, string videojuego, Partida *datos)
+{
 
     int aux = 0;
 
-    while (aux < ultimo){
-        if (arreglo[aux]->getNombre() == videojuego){
-            //Situado sobre el videojuego
-            
+    while (aux < ultimo)
+    {
+        if (arreglo[aux]->getNombre() == videojuego)
+        {
+            // Situado sobre el videojuego
+
             int tipoPartida;
-            cout<<"1- Partida individual"<<endl;
-            cout<<"2- Partida multijugador"<<endl;
-            cout<<"Seleccione tipo de partida:";
+            cout << "1- Partida individual" << endl;
+            cout << "2- Partida multijugador" << endl;
+            cout << "Seleccione tipo de partida:";
             cin >> tipoPartida;
 
-            arreglo[aux]->iniciarPartida(datos, tipoPartida);
+            arreglo[aux]->iniciarPartida2(datos, tipoPartida);
         }
         aux = aux + 1;
     }
 }
 
-void ContenedorVideojuego::mostrarPartida(string nombreVideojuego){
+void ContenedorVideojuego::mostrarPartida(string nombreVideojuego)
+{
 
     int aux = 0;
 
-    while (aux < ultimo){
-        if (arreglo[aux]->getNombre() == nombreVideojuego){
-            //Situado sobre el videojuego
-            arreglo[aux]->mostrarPartida();
+    while (aux < ultimo)
+    {
+        if (arreglo[aux]->getNombre() == nombreVideojuego)
+        {
+            // Situado sobre el videojuego
+            arreglo[aux]->mostrarPartida2();
         }
-        aux = aux+1;
+        aux = aux + 1;
     }
+}
 
+int ContenedorVideojuego::getUltimo(){
+    return this->ultimo;
 }

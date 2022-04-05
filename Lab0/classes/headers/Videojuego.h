@@ -27,20 +27,8 @@ public:
     TipoJuego getGenero();
     string traducirGenero(Videojuego *aux);
 
-    void iniciarPartida(Partida *datos, int tipoPartida){
-        if (tipoPartida==1){
-            //Individual
-            partidas->iniciarPartidaIndividual(datos);
-        } else {
-            //Multijugador
-            partidas->iniciarPartidaMultiJugador(datos);
-        }
-
-    }
-
-    void mostrarPartida(){
-        partidas->mostrarPartidas();
-    }
+    void iniciarPartida2(Partida *datos, int tipoPartida);
+    void mostrarPartida2();
 
     virtual ~Videojuego();
 };

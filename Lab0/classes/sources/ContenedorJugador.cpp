@@ -1,4 +1,5 @@
 #include "./../headers/ContenedorJugador.h"
+#include "./../../datatypes/sources/DtJugador.cpp"
 
 void ContenedorJugador::agregarJugador(string nickname, int edad, string contrasenia)
 {
@@ -68,4 +69,29 @@ bool ContenedorJugador::existeJugador(string nickname)
         aux = aux + 1;
     }
     return false;
+}
+
+
+DtJugador** ContenedorJugador::obtenerJugadores(int& cantJugadores){
+    cantJugadores=ultimo;
+
+    DtJugador ** dataArreglo= new DtJugador *[ultimo];
+
+    int aux=0;
+    while (aux<ultimo){
+        string nick = arreglo[aux]->getNickname();
+        int edad = arreglo[aux]->getEdad();
+        string contra = arreglo[aux]->getContrasenia();
+
+        DtJugador *dataAux = new DtJugador(nick, edad, contra);
+        //DtJugador *dataAux = new DtJugador(arreglo[aux]->getNickname(),arreglo[aux]->getEdad(),arreglo[aux]->getContrasenia());
+
+        dataArreglo[aux]=dataAux;
+        aux=aux+1;
+    }
+    return dataArreglo;
+}
+
+int ContenedorJugador::getUltimo(){
+    return this->ultimo;
 }

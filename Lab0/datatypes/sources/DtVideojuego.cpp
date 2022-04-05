@@ -1,4 +1,9 @@
 #include "../headers/DtVideojuego.h"
+#include <string>
+
+using namespace std;
+
+DtVideojuego::DtVideojuego(){}
 
 DtVideojuego::DtVideojuego(string titulo, TipoJuego tipoJuego)
 {
@@ -11,7 +16,7 @@ string DtVideojuego::getNombre()
     return this->titulo;
 }
 
-DtVideojuego::TipoJuego DtVideojuego::getTipoJuego()
+TipoJuego DtVideojuego::getTipoJuego()
 {
     return this->tipoJuego;
 }
