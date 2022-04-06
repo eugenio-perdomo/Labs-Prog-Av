@@ -1,9 +1,16 @@
 #include "./classes/headers/Sistema.h"
+#include <iomanip>
+#include <ctime>
 
 using namespace std;
 
 int main()
 {
+
+    auto t = time(nullptr); //Auxiliar para obtener la fecha y hora del sistema
+    auto tm = *localtime(&t); //Guarda todos los cambos de fecha y hora
+    int prueba = tm.tm_hour; //Ejemplo de carga
+
     Sistema sistema;
 
     int opcionUsuario;

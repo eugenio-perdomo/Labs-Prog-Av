@@ -12,7 +12,7 @@ void ContenedorPartida::iniciarPartidaIndividual(Partida *datos)
     //Partida *datos
 
     if (ultimo == MAX_PARTIDAS){
-        cout << "Error: se intento superar el limite de jugadores" << endl;
+        cout << "Error: se intento superar el limite de partidas" << endl;
     } else {
         Partida *aux = new PartidaIndividual;
         aux->setDuracion(datos->getDuracion());
@@ -27,7 +27,7 @@ void ContenedorPartida::iniciarPartidaIndividual(Partida *datos)
 void ContenedorPartida::iniciarPartidaMultiJugador(Partida *datos)
 {
     if (ultimo == MAX_PARTIDAS){
-        cout << "Error: se intento superar el limite de jugadores" << endl;
+        cout << "Error: se intento superar el limite de partidas" << endl;
     } else {
         Partida *aux = new PartidaMultijugador;
         aux->setDuracion(datos->getDuracion());
