@@ -1,5 +1,4 @@
 #include "./../headers/Sistema.h"
-// #include "./../headers/Partida.h"
 
 void Sistema::mostrarMenuPrincipal()
 {
@@ -13,54 +12,7 @@ void Sistema::mostrarMenuPrincipal()
     std::cout << "Pulse \e[0;92m0\e[0m para salir.\n\nOpcion: \e[0;92m";
 }
 
-void Sistema::mostrarContenidoAnterior()
-{
-    cout << "PRUEBA VIDEOJUEGO" << endl;
-
-    Videojuego v1;
-    v1.setNombre("Elden Ring");
-    v1.setGenero(AVENTURA);
-    cout << v1.getNombre() << " es un videojuego del genero " << v1.getGenero() << endl;
-
-    cout << endl;
-    cout << "-------------------------------------------------------------------" << endl;
-    cout << endl;
-    cout << "PRUEBA PARTIDA" << endl;
-
-    DtFechaHora *momento1 = new DtFechaHora(27, 3, 2020, 20, 30);
-    Partida *p1 = new Partida(10.f, momento1);
-    DtFechaHora *fPartida = p1->getFecha();
-    cout << "Duracion de la partida: " << p1->getDuracion() << endl;
-    cout << "Fecha de la partida: " << fPartida->getDia() << "/" << fPartida->getMes() << "/" << fPartida->getAnio() << " " << fPartida->getHora() << ":" << fPartida->getMinuto() << endl;
-
-    cout << endl;
-    cout << "-------------------------------------------------------------------" << endl;
-    cout << endl;
-
-    ContenedorJugador ConJugador;
-
-    ConJugador.agregarJugador("J1", 21, "A");
-    ConJugador.agregarJugador("J2", 22, "B");
-    ConJugador.agregarJugador("J3", 23, "C");
-
-    ConJugador.mostrarJugadores();
-
-    cout << endl;
-    cout << "-------------------------------------------------------------------" << endl;
-    cout << endl;
-
-    ContenedorVideojuego ConVideojuego;
-
-    ConVideojuego.agregarVideojuego("Elden Ring", AVENTURA);
-    ConVideojuego.agregarVideojuego("Fifa 2077", DEPORTE);
-    ConVideojuego.agregarVideojuego("Hollow Knight", OTRO);
-
-    ConVideojuego.mostrarVideojuegos();
-}
-
-Sistema::Sistema() {}
-Sistema::~Sistema() {}
-
+// Menu caso 1
 void Sistema::agregarJugador()
 {
     string nickname;
@@ -81,19 +33,7 @@ void Sistema::agregarJugador()
     ConJugador.agregarJugador(nickname, edad, contrasenia);
 }
 
-void Sistema::mostrarJugadores()
-{
-    //Lista los jugadores
-    ConJugador.mostrarJugadores();
-
-    //Devuelve un arreglo de DtJugador** y un int con la cantidad de jugadores.
-    int cantJugadores = 0;
-    DtJugador ** dataJugador= new DtJugador *[ConJugador.getUltimo()];
-    dataJugador = ConJugador.obtenerJugadores(cantJugadores);
-    cout<<"Total de jugadores: "<<cantJugadores<<endl;
-
-}
-
+// Menu caso 2
 void Sistema::agregarVideojuego()
 {
     string nombre;
@@ -135,6 +75,21 @@ void Sistema::agregarVideojuego()
     // ConVideojuego.agregarVideojuego(nombre, genero);
 }
 
+// Menu caso 3
+void Sistema::mostrarJugadores()
+{
+    //Lista los jugadores
+    ConJugador.mostrarJugadores();
+
+    //Devuelve un arreglo de DtJugador** y un int con la cantidad de jugadores.
+    int cantJugadores = 0;
+    DtJugador ** dataJugador= new DtJugador *[ConJugador.getUltimo()];
+    dataJugador = ConJugador.obtenerJugadores(cantJugadores);
+    cout<<"Total de jugadores: "<<cantJugadores<<endl;
+
+}
+
+// Menu caso 4
 void Sistema::mostrarVideojuego()
 {
     ConVideojuego.mostrarVideojuegos();
@@ -145,9 +100,23 @@ void Sistema::mostrarVideojuego()
     dataVideojuego = ConVideojuego.obtenerVideojuegos(cantVideojuegos);
 
     cout<<"Total de videojuegos: "<<cantVideojuegos<<endl;
-
 }
 
+// Menu caso 5
+void Sistema::mostrarPartida() {
+    string nombreVideojuego;
+    cout <<"Indicar videojuego: ";
+    cin.ignore();
+    getline(cin, nombreVideojuego);
+
+    if(ConVideojuego.existeVideojuego(nombreVideojuego)){
+        ConVideojuego.mostrarPartida(nombreVideojuego);
+    } else {
+        cout<<"No existe ese videojuego"<<endl;
+    }
+}
+
+// Menu caso 6
 void Sistema::agregarPartida() {
 
     string nombreVideojuego;
@@ -182,16 +151,5 @@ void Sistema::agregarPartida() {
     }
 }
 
-void Sistema::mostrarPartida() {
-
-    string nombreVideojuego;
-    cout <<"Indicar videojuego: ";
-    cin.ignore();
-    getline(cin, nombreVideojuego);
-
-    if(ConVideojuego.existeVideojuego(nombreVideojuego)){
-        ConVideojuego.mostrarPartida(nombreVideojuego);
-    } else {
-        cout<<"No existe ese videojuego"<<endl;
-    }
-}
+Sistema::Sistema() {}
+Sistema::~Sistema() {}
