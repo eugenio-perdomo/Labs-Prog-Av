@@ -18,7 +18,7 @@ void ContenedorPartida::iniciarPartidaIndividual(Partida *datos)
         aux->setDuracion(datos->getDuracion());
         aux->setFecha(datos->getFecha());
         aux->setIniciador(datos->getIniciador());
-
+    //variable que cuenta la cantidad de partistadas individuales cantPartidas ++;
         arreglo[ultimo] = aux;
         ultimo = ultimo + 1;
     }
@@ -41,20 +41,25 @@ void ContenedorPartida::iniciarPartidaMultiJugador(Partida *datos)
 
 void ContenedorPartida::mostrarPartidas()
 {
+    int canIndividual = 0;
+    int canMultijugador = 0;
     int aux = 0;
     while (aux < ultimo)
     {
-
+        
         if (typeid(*arreglo[aux]) == typeid(PartidaIndividual)) {
-            cout<<"Partida individual."<<endl;
+            canIndividual = canIndividual +1;
         } else {
-            cout <<"Partida multijugador"<<endl;
+            canMultijugador = canMultijugador + 1;
         }
 
  
 
-        cout << arreglo[aux]->getDuracion() << endl;
+        //cout << arreglo[aux]->getDuracion() << endl;
         aux = aux + 1;
     }
+
+    cout << "Partidas individuales: " << canIndividual << endl;
+    cout << "Partidas multijugador " << canMultijugador << endl;
     
 }
