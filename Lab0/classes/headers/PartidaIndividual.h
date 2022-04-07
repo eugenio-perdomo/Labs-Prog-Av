@@ -4,8 +4,13 @@
 
 class PartidaIndividual : public Partida
 {
+private:
+    bool esContinuacion;
+
 public:
-    bool continuaPartidaAnterior();
+    void setContinuacion(bool continuacion);
+    bool getContinuacion();
+
     float darTotalHorasParticipantes();
 };
 
