@@ -34,12 +34,15 @@ void ContenedorJugador::mostrarJugadores()
 {
     int aux = 0;
 
+    cout<<"***JUGADORES EN EL SISTEMA***"<<endl;
+    cout<<"NICKNAME /// EDAD /// CONTRASENIA"<<endl;
     while (aux < ultimo)
     {
-        cout << "El jugador " << arreglo[aux]->getNickname() << " tiene " << arreglo[aux]->getEdad() << " años. Su contra es: " << arreglo[aux]->getContrasenia() << endl;
+        cout<<arreglo[aux]->getNickname()<<" /// "<<arreglo[aux]->getEdad()<<" /// "<<arreglo[aux]->getContrasenia()<<endl;
         aux = aux + 1;
     }
 }
+
 
 Jugador * ContenedorJugador::devolverJugador(string nickname)
 {

@@ -1,8 +1,10 @@
 #include "./../headers/Sistema.h"
+// #include "./../headers/Partida.h"
 
 void Sistema::mostrarMenuPrincipal()
 {
-    std::cout << "\e[0;92mBienvenido -" << " Elija una opción\e[0m:\n";
+    std::cout << "\e[0;92mBienvenido -"
+              << " Elija una opción\e[0m:\n";
     std::cout << "\e[0;92m1)\e[0m Agregar Jugador.\n";
     std::cout << "\e[0;92m2)\e[0m Agregar Videojuego.\n";
     std::cout << "\e[0;92m3)\e[0m Obtener Jugadores.\n";
@@ -11,6 +13,9 @@ void Sistema::mostrarMenuPrincipal()
     std::cout << "\e[0;92m6)\e[0m Iniciar Partida.\n";
     std::cout << "Pulse \e[0;92m0\e[0m para salir.\n\nOpcion: \e[0;92m";
 }
+
+Sistema::Sistema() {}
+Sistema::~Sistema() {}
 
 // Menu caso 1
 void Sistema::agregarJugador()
@@ -71,22 +76,19 @@ void Sistema::agregarVideojuego()
         ConVideojuego.agregarVideojuego(nombre, OTRO);
         break;
     }
-
-    // ConVideojuego.agregarVideojuego(nombre, genero);
 }
 
 // Menu caso 3
 void Sistema::mostrarJugadores()
 {
-    //Lista los jugadores
+    // Lista los jugadores
     ConJugador.mostrarJugadores();
 
-    //Devuelve un arreglo de DtJugador** y un int con la cantidad de jugadores.
+    // Devuelve un arreglo de DtJugador** y un int con la cantidad de jugadores.
     int cantJugadores = 0;
-    DtJugador ** dataJugador= new DtJugador *[ConJugador.getUltimo()];
+    DtJugador **dataJugador = new DtJugador *[ConJugador.getUltimo()];
     dataJugador = ConJugador.obtenerJugadores(cantJugadores);
-    cout<<"Total de jugadores: "<<cantJugadores<<endl;
-
+    cout << "Total de jugadores: " << cantJugadores << endl;
 }
 
 // Menu caso 4
@@ -95,61 +97,84 @@ void Sistema::mostrarVideojuego()
     ConVideojuego.mostrarVideojuegos();
 
     int cantVideojuegos = 0;
-    DtVideojuego** dataVideojuego = new DtVideojuego *[ConVideojuego.getUltimo()];
+    DtVideojuego **dataVideojuego = new DtVideojuego *[ConVideojuego.getUltimo()];
 
     dataVideojuego = ConVideojuego.obtenerVideojuegos(cantVideojuegos);
 
-    cout<<"Total de videojuegos: "<<cantVideojuegos<<endl;
+    cout << "Total de videojuegos: " << cantVideojuegos << endl;
 }
 
 // Menu caso 5
-void Sistema::mostrarPartida() {
+void Sistema::mostrarPartida()
+{
+
     string nombreVideojuego;
-    cout <<"Indicar videojuego: ";
+    cout << "Indicar videojuego: ";
     cin.ignore();
     getline(cin, nombreVideojuego);
 
-    if(ConVideojuego.existeVideojuego(nombreVideojuego)){
+    if (ConVideojuego.existeVideojuego(nombreVideojuego))
+    {
         ConVideojuego.mostrarPartida(nombreVideojuego);
-    } else {
-        cout<<"No existe ese videojuego"<<endl;
+    }
+    else
+    {
+        cout << "No existe ese videojuego" << endl;
     }
 }
 
 // Menu caso 6
-void Sistema::agregarPartida() {
+void Sistema::agregarPartida()
+{
 
     string nombreVideojuego;
-    cout <<"Indicar videojuego: ";
+    cout << "Indicar videojuego: ";
     cin.ignore();
     getline(cin, nombreVideojuego);
 
-    if(ConVideojuego.existeVideojuego(nombreVideojuego)){
+    if (ConVideojuego.existeVideojuego(nombreVideojuego))
+    {
         string iniciador;
-        cout <<"Indicar nickname iniciador: ";
+        cout << "Indicar nickname iniciador: ";
         cin.ignore();
         getline(cin, iniciador);
 
-        if (ConJugador.existeJugador(iniciador)==false){
-            Jugador * jugadorIniciador;
+        if (ConJugador.existeJugador(iniciador) == false)
+        {
+            Jugador *jugadorIniciador;
             jugadorIniciador = ConJugador.devolverJugador(iniciador);
-            
-            DtFechaHora * fechaHora = new DtFechaHora(3,4,2022,14,35);
+
+            DtFechaHora *fechaHora = new DtFechaHora(3, 4, 2022, 14, 35);
             float dur = 0;
-            Partida * datos = new Partida();
+            Partida *datos = new Partida();
             datos->setDuracion(dur);
             datos->setFecha(fechaHora);
-            datos->setIniciador(jugadorIniciador);            
+            datos->setIniciador(jugadorIniciador);
 
             ConVideojuego.iniciarPartida(iniciador, nombreVideojuego, datos);
-
-        } else {
-            cout<<"No existe ese jugador"<<endl;
         }
-    } else {
-        cout <<"No existe ese videojuego"<<endl;
+        else
+        {
+            try
+            {
+                throw invalid_argument("No existe ese jugador");
+            }
+            catch (const std::invalid_argument &ia)
+            {
+                std::cerr << "Invalid argument: " << ia.what() << endl;
+            }
+        }
+    }
+    else
+    {
+
+        try
+        {
+            throw invalid_argument("No existe ese videojuego");
+        }
+        catch (const std::invalid_argument &ia)
+        {
+            std::cerr << "Invalid argument: " << ia.what() << endl;
+        }
     }
 }
-
-Sistema::Sistema() {}
-Sistema::~Sistema() {}
