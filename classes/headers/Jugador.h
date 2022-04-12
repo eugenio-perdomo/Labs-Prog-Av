@@ -9,16 +9,16 @@ using namespace std;
 class Jugador
 {
 private:
-    string nickname;
-    int edad;
-    string contrasenia;
+    string Nickname;
+    int Edad;
+    string Contrasenia;
 
 public:
     Jugador();
-    Jugador(string nick, int e, string contra);
+    Jugador(string nick, int age, string con);
     void setNickname(string n);
-    void setEdad(int e);
-    void setContrasenia(string contra);
+    void setEdad(int age);
+    void setContrasenia(string con);
     string getNickname();
     int getEdad();
     string getContrasenia();

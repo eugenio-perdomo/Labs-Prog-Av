@@ -6,11 +6,11 @@ using namespace std;
 
 DtJugador::DtJugador() {}
 
-DtJugador::DtJugador(string nick, int e, string contra)
+DtJugador::DtJugador(string nick, int age, string con)
 {
     this->nickname = nick;
-    this->edad = e;
-    this->contrasenia = contra;
+    this->edad = age;
+    this->contrasenia = con;
 }
 
 DtJugador::~DtJugador(){}

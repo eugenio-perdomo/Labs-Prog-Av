@@ -33,6 +33,5 @@ void DtVideojuego::setTipoJuego(TipoJuego tipoJuego)
 
 float DtVideojuego::totalHorasDeJuego()
 {
-    // TODO: // a desarrollar
     return 0;
 }

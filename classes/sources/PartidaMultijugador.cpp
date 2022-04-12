@@ -1,23 +1,20 @@
 #include "./../headers/PartidaMultijugador.h"
 
-void PartidaMultijugador::setTransmicion(bool transmicion)
+bool PartidaMultijugador::getTransmision()
 {
-    this->transmicion=transmicion;
+    return this->transmision;
 }
-
-bool PartidaMultijugador::getTransmicion()
+void PartidaMultijugador::setTransmision(bool transmision)
 {
-    return this->transmicion;
+    this->transmision=transmision;
 }
 
 void PartidaMultijugador::agregarParticipante(Jugador *j)
 {
-    participantes.agregarJugador(j->getNickname(), j->getEdad(), j->getContrasenia());
 }
 
 void PartidaMultijugador::mostrarParticipantes()
 {
-
     participantes.mostrarJugadores();
 }
 

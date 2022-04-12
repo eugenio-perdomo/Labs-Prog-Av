@@ -15,7 +15,7 @@ DtFechaHora::DtFechaHora(int dia, int mes, int anio, int hora, int minuto)
 
     if (!isValid())
     {
-        throw invalid_argument("Fecha incorrecta");
+        throw invalid_argument("Esta mal");
     }
 }
 

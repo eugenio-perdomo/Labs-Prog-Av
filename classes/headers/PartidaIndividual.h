@@ -8,7 +8,7 @@ private:
     bool esContinuacion;
 
 public:
-    void setContinuacion(bool continuacion);
+    void setContinuacion(bool continua);
     bool getContinuacion();
 
     float darTotalHorasParticipantes();

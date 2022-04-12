@@ -1,19 +1,16 @@
 #ifndef PARTIDAMULTIJUGADOR_H
 #define PARTIDAMULTIJUGADOR_H
 #include "Partida.h"
-#include "ContenedorJugador.h"
-
-//class Jugador;
 
 class PartidaMultijugador : public Partida
 {
 private:
     ContenedorJugador participantes;
-    bool transmicion;
+    bool transmision;
 public:
 
-    void setTransmicion(bool transmicion);
-    bool getTransmicion();
+    void setTransmision(bool transmision);
+    bool getTransmision();
 
     void agregarParticipante(Jugador *j);
     void mostrarParticipantes();

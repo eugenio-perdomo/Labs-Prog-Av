@@ -7,4 +7,4 @@ enum TipoJuego
     DEPORTE,
     OTRO
 };
-#endif //TIPOJUEGO_H_INCLUDED
+#endif

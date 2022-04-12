@@ -14,14 +14,14 @@ private:
     Jugador *iniciador;
 public:
     Partida();
-    Partida(float d, DtFechaHora *f);
+    Partida(float dura, DtFechaHora *fecha);
 
     float getDuracion();
     DtFechaHora *getFecha();
     Jugador *getIniciador(); 
     
-    void setDuracion(float d);
-    void setFecha(DtFechaHora *f);
+    void setDuracion(float dura);
+    void setFecha(DtFechaHora *fecha);
     void setIniciador(Jugador * iniciador);
     
     virtual ~Partida();

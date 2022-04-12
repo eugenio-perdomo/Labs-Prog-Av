@@ -3,7 +3,6 @@
 
 #include <string>
 #include "./TipoJuego.h"
-#include "./../../classes/headers/ContenedorPartida.h"
 #define MAX_VIDEOJUEGOS 5
 
 using namespace std;
@@ -19,17 +18,12 @@ private:
 
 public:
     Videojuego();
-    Videojuego(string n, TipoJuego g);
-    void setNombre(string n);
-    void setGenero(TipoJuego g);
-
+    Videojuego(string nom, TipoJuego gen);
+    void setNombre(string nom);
+    void setGenero(TipoJuego gen);
     string getNombre();
     TipoJuego getGenero();
     string traducirGenero(Videojuego *aux);
-
-    void iniciarPartida2(Partida *datos, int tipoPartida);
-    void mostrarPartida2();
-
     virtual ~Videojuego();
 };
 

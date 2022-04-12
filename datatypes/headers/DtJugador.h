@@ -13,7 +13,7 @@ private:
 
 public:
     DtJugador();
-    DtJugador(string nick, int e, string contra);
+    DtJugador(string nick, int age, string con);
 
     string getNickname();
     int getEdad();
